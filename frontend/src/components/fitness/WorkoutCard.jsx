@@ -2,7 +2,8 @@ export default function WorkoutCard({
   workout,
   onStart,
   isStarting = false,
-  canStart = false
+  canStart = false,
+  recommendationLabel = ""
 }) {
   return (
     <article
@@ -28,9 +29,14 @@ export default function WorkoutCard({
       <p style={{ margin: 0, color: "#5d5d5d" }}>
         {workout.description || "A guided workout session ready to launch."}
       </p>
+      {recommendationLabel ? (
+        <p style={{ margin: 0, color: "var(--color-accent)", fontWeight: 700 }}>
+          Recommended mix: {recommendationLabel}
+        </p>
+      ) : null}
       <button
         type="button"
-        onClick={() => onStart?.(workout._id || workout.id)}
+        onClick={() => onStart?.(workout)}
         disabled={!canStart || isStarting}
         style={{
           marginTop: "0.5rem",

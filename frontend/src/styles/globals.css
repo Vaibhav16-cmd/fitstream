@@ -7,8 +7,22 @@
 
 body {
   margin: 0;
+  padding-bottom: 108px;
+  background: var(--color-background);
+  color: var(--color-text);
 }
 
 * {
   box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
 }

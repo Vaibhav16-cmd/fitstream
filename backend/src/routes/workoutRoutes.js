@@ -4,6 +4,7 @@ import {
   createWorkout,
   getWorkoutById,
   listWorkouts,
+  listWorkoutSessions,
   startWorkoutSession
 } from "../controllers/workoutController.js";
 import { protect } from "../middleware/authMiddleware.js";
@@ -14,6 +15,7 @@ const router = express.Router();
 
 router.get("/", listWorkouts);
 router.get("/:workoutId", getWorkoutById);
+router.get("/sessions/history/list", protect, listWorkoutSessions);
 router.post("/", protect, validateRequest(validateWorkoutInput), createWorkout);
 router.post("/:workoutId/start", protect, startWorkoutSession);
 router.patch("/sessions/:sessionId/complete", protect, completeWorkoutSession);

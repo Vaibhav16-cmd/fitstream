@@ -16,6 +16,19 @@ const playlistSchema = new mongoose.Schema(
       enum: ["calm", "focus", "energetic", "recovery"],
       default: "focus"
     },
+    category: {
+      type: String,
+      enum: ["strength", "cardio", "yoga", "mobility", "hiit", "mixed"],
+      default: "mixed"
+    },
+    description: {
+      type: String,
+      default: ""
+    },
+    isSystem: {
+      type: Boolean,
+      default: false
+    },
     songs: [
       {
         type: mongoose.Schema.Types.ObjectId,

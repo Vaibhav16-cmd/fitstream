@@ -23,7 +23,16 @@ const workoutSessionSchema = new mongoose.Schema(
     },
     endedAt: Date,
     durationMinutes: Number,
-    caloriesBurned: Number
+    caloriesBurned: Number,
+    playlist: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Playlist"
+    },
+    recommendedMood: String,
+    notes: {
+      type: String,
+      default: ""
+    }
   },
   { timestamps: true }
 );
